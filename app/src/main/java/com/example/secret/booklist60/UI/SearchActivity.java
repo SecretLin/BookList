@@ -149,6 +149,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
             final List<Booklist> filteredDataList;
             filteredDataList=new ArrayList<>();
             BmobQuery<Booklist> query = new BmobQuery<>();
+//            query.addWhereMatches("name",s);
             query.findObjects(SearchActivity.this, new FindListener<Booklist>() {
                 @Override
                 public void onSuccess(List<Booklist> list) {

@@ -410,7 +410,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                             public void handleMessage(Message msg) {
                                 if (msg.what == 007) {
 
-                                    Glide.with(getContext()).load(currentUser.getHead()).into(circleImageView);
+                                    Glide.with(getContext()).load(currentUser.getHead().getUrl()).into(circleImageView);
                                     Log.i("Receive:", "yes");
                                 }
                             }
@@ -465,6 +465,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
      * 调用系统的裁剪
      *
      * @param uri
+     *
      */
     public void cropPhoto(Uri uri) {
         Intent intent = new Intent("com.android.camera.action.CROP");

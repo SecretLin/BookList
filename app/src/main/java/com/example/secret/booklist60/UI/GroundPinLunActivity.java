@@ -2,6 +2,7 @@ package com.example.secret.booklist60.UI;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -66,6 +67,7 @@ public class GroundPinLunActivity extends Activity {
     String content2 = null;
     RelativeLayout rvBook;
 
+
     public void onCreate(final Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groundpinlun);
@@ -103,7 +105,17 @@ public class GroundPinLunActivity extends Activity {
         if (ground.getUser().getHead()!=null){
             Glide.with(this).load(ground.getUser().getHead().getUrl()).into(ivHead);
         }
+        ivHead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(GroundPinLunActivity.this,UserDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("user",ground.getUser());
+                i.putExtras(bundle);
+                startActivity(i);
 
+            }
+        });
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvTitle.setText(ground.getUser().getUsername());
 
